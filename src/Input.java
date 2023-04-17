@@ -1,7 +1,13 @@
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
+
+/**
+ * This method checks user input.
+ * If the input is incorrect, the user sees a corresponding message.
+ */
 
 public class Input {
 
@@ -14,7 +20,6 @@ public class Input {
         }
         return number;
     }
-
 
     public static boolean isDigitsAllDifferent(String[] input) {
         Set<String> checker = new HashSet<>(Arrays.asList(input));

@@ -1,15 +1,13 @@
+
+/**
+ * This class contains key logic of the game.
+ */
+
 public class Grader {
-    private int bulls;
-    private int cows;
-    private int counterBulls = 0;
-    private int counterCows = 0;
+    private int bulls = 0;
+    private int cows = 0;
 
     public Grader() {
-    }
-
-    public Grader(int bulls, int cows) {
-        this.bulls = bulls;
-        this.cows = cows;
     }
 
     public int getBulls() {
@@ -28,60 +26,40 @@ public class Grader {
         this.cows = cows;
     }
 
-    public int getCounterBulls() {
-        return counterBulls;
-    }
-
-    public void setCounterBulls(int counterBulls) {
-        this.counterBulls = counterBulls;
-    }
-
-    public int getCounterCows() {
-        return counterCows;
-    }
-
-    public void setCounterCows(int counterCows) {
-        this.counterCows = counterCows;
-    }
+    /**
+     * The method compares user input with a secret number.
+     */
 
     public void countBullsAndCows(String[] code, String[] number) {
         for (int i = 0; i < code.length; i++) {
             for (int j = 0; j < number.length; j++) {
                 if (code[i].equals(number[j]) && i == j) {
-                    counterBulls++;
+                    bulls++;
                 }
                 if (code[i].equals(number[j]) && i != j) {
-                    counterCows++;
+                    cows++;
                 }
             }
         }
     }
 
+    /**
+     * This method outputs the results of each move and final result of the game.
+     */
+
     public void printResult() {
-        if (counterBulls == 4) {
-            System.out.println("Congrats! You have guessed the number.");
-        }
-        if (counterBulls > 0 && counterCows > 0) {
-            System.out.printf("Grade: %d bull(s) and %d cow(s).\n", counterBulls, counterCows);
-        }
-        if (counterBulls > 0 && counterCows == 0) {
-            System.out.printf("Grade: %d bull(s).\n", counterBulls);
-        }
-        if (counterBulls == 0 && counterCows > 0) {
-            System.out.printf("Grade: %d cow(s).\n", counterCows);
-        }
-        if (counterBulls == 0 && counterCows == 0) {
-            System.out.println("Grade: None.");
-        }
+        if (bulls == SecretNumber.NUMBER_LENGTH) System.out.println("Congrats! You have guessed the number.");
+        if (bulls > 0 && cows > 0) System.out.printf("%d bull(s) and %d cow(s).\n", bulls, cows);
+        if (bulls > 0 && cows == 0) System.out.printf("%d bull(s).\n", bulls);
+        if (bulls == 0 && cows > 0) System.out.printf("%d cow(s).\n", cows);
+        if (bulls == 0 && cows == 0) System.out.println("None.");
     }
 
     @Override
     public String toString() {
         return "Grader{" +
-                "bulls=" + bulls +
-                ", cows=" + cows +
-                ", counterBulls=" + counterBulls +
-                ", counterCows=" + counterCows +
+                ", counterBulls=" + bulls +
+                ", counterCows=" + cows +
                 '}';
     }
 }
