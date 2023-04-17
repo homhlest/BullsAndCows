@@ -9,7 +9,7 @@ public class Input {
         Scanner sc = new Scanner(System.in);
         String[] number = sc.nextLine().split("");
         while (!isDigitsAllDifferent(number)) {
-            System.out.println("The digits must be all different.");
+            System.out.println("There should be 4 different digits. Try again.");
             number = sc.nextLine().split("");
         }
         return number;
