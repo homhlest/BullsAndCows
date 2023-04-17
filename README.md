@@ -1,5 +1,5 @@
 # BullsAndCows
-This program is a version of Bulls and Cows game (code-breaking game). The numerical version of the game is usually played with 4 digits.
+This program is a version of Bulls and Cows game (code-breaking game).
 
 The numerical version of the game is usually played with 4 digits, but can be played with any number of digits.
 On a sheet of paper, the players each write a 4-digit secret number. The digits must be all different.
