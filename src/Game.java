@@ -9,13 +9,14 @@ public class Game {
 
         Grader g1 = new Grader();
         while (true) {
-            String[] numberArr = sc.nextLine().split("");
 
-            if (Arrays.equals(secretCode, numberArr)) {
+            String[] number = Input.check();
+
+            if (Arrays.equals(secretCode, number)) {
                 System.out.println("Congrats! You have guessed the code.");
                 break;
             }
-            g1.countBullsAndCows(secretCode, numberArr);
+            g1.countBullsAndCows(secretCode, number);
             g1.printResult();
             g1.setCounterBulls(0);
             g1.setCounterCows(0);
